@@ -40,11 +40,11 @@ function love.physics.getMeter() end
 ---
 ---Creates a new body.
 ---
----There are three types of bodies.
+---There are three types of bodies. 
 ---
----* Static bodies do not move, have a infinite mass, and can be used for level boundaries.
+---* Static bodies do not move, have a infinite mass, and can be used for level boundaries. 
 ---
----* Dynamic bodies are the main actors in the simulation, they collide with everything.
+---* Dynamic bodies are the main actors in the simulation, they collide with everything. 
 ---
 ---* Kinematic bodies do not react to forces and only collide with dynamic bodies.
 ---
@@ -184,7 +184,7 @@ function love.physics.newMotorJoint(body1, body2, correctionFactor) end
 ---
 ---This joint actually connects the body to a fixed point in the world. To make it follow the mouse, the fixed point must be updated every timestep (example below).
 ---
----The advantage of using a MouseJoint instead of just changing a body position directly is that collisions and reactions to other joints are handled by the physics engine.
+---The advantage of using a MouseJoint instead of just changing a body position directly is that collisions and reactions to other joints are handled by the physics engine. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.physics.newMouseJoint)
@@ -260,7 +260,7 @@ function love.physics.newPrismaticJoint(body1, body2, x, y, ax, ay, collideConne
 function love.physics.newPulleyJoint(body1, body2, gx1, gy1, gx2, gy2, x1, y1, x2, y2, ratio, collideConnected) end
 
 ---
----Shorthand for creating rectangular PolygonShapes.
+---Shorthand for creating rectangular PolygonShapes. 
 ---
 ---By default, the local origin is located at the '''center''' of the rectangle as opposed to the top left for graphics.
 ---
@@ -409,7 +409,7 @@ function Body:applyForce(fx, fy) end
 ---
 ---An impulse pushes a body in a direction. A body with with a larger mass will react less. The reaction does '''not''' depend on the timestep, and is equivalent to applying a force continuously for 1 second. Impulses are best used to give a single push to a body. For a continuous push to a body it is better to use Body:applyForce.
 ---
----If the position to apply the impulse is not given, it will act on the center of mass of the body. The part of the impulse not directed towards the center of mass will cause the body to spin (and depends on the rotational inertia).
+---If the position to apply the impulse is not given, it will act on the center of mass of the body. The part of the impulse not directed towards the center of mass will cause the body to spin (and depends on the rotational inertia). 
 ---
 ---Note that the impulse components and position must be given in world coordinates.
 ---
@@ -897,7 +897,7 @@ function Body:setActive(active) end
 ---
 ---A value of 0 radians will mean 'looking to the right'. Although radians increase counter-clockwise, the y axis points down so it becomes ''clockwise'' from our point of view.
 ---
----It is possible to cause a collision with another body by changing its angle.
+---It is possible to cause a collision with another body by changing its angle. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:setAngle)
@@ -923,7 +923,7 @@ function Body:setAngularDamping(damping) end
 ---
 ---The angular velocity is the ''rate of change of angle over time''.
 ---
----This function will not accumulate anything; any impulses previously applied since the last call to World:update will be lost.
+---This function will not accumulate anything; any impulses previously applied since the last call to World:update will be lost. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:setAngularVelocity)
@@ -962,7 +962,7 @@ function Body:setBullet(status) end
 ---
 ---Set whether a body has fixed rotation.
 ---
----Bodies with fixed rotation don't vary the speed at which they rotate. Calling this function causes the mass to be reset.
+---Bodies with fixed rotation don't vary the speed at which they rotate. Calling this function causes the mass to be reset. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:setFixedRotation)
@@ -1095,7 +1095,7 @@ function Body:setUserData(value) end
 ---
 ---Set the x position of the body.
 ---
----This function cannot wake up the body.
+---This function cannot wake up the body. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:setX)
@@ -1106,7 +1106,7 @@ function Body:setX(x) end
 ---
 ---Set the y position of the body.
 ---
----This function cannot wake up the body.
+---This function cannot wake up the body. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:setY)
@@ -1572,8 +1572,6 @@ function Fixture:getBoundingBox(index) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Fixture:getCategory)
 ---
----@return number category1 # The first category.
----@return number category2 # The second category.
 function Fixture:getCategory() end
 
 ---
@@ -1718,9 +1716,8 @@ function Fixture:rayCast(x1, y1, x2, y2, maxFraction, childIndex) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Fixture:setCategory)
 ---
----@param category1 number # The first category.
----@param category2 number # The second category.
-function Fixture:setCategory(category1, category2) end
+---@vararg number # The categories.
+function Fixture:setCategory(...) end
 
 ---
 ---Sets the density of the fixture. Call Body:resetMassData if this needs to take effect immediately.
@@ -1922,7 +1919,7 @@ local Joint = {}
 ---
 ---Explicitly destroys the Joint. An error will occur if you attempt to use the object after calling this function.
 ---
----In 0.7.2, when you don't have time to wait for garbage collection, this function
+---In 0.7.2, when you don't have time to wait for garbage collection, this function 
 ---
 ---may be used to free the object immediately.
 ---
@@ -2669,7 +2666,7 @@ function RopeJoint:setMaxLength(maxLength) end
 ---
 ---Shapes are solid 2d geometrical objects which handle the mass and collision of a Body in love.physics.
 ---
----Shapes are attached to a Body via a Fixture. The Shape object is copied when this happens.
+---Shapes are attached to a Body via a Fixture. The Shape object is copied when this happens. 
 ---
 ---The Shape's position is relative to the position of the Body it has been attached to.
 ---
@@ -2980,7 +2977,7 @@ function WheelJoint:setSpringFrequency(freq) end
 local World = {}
 
 ---
----Destroys the world, taking all bodies, joints, fixtures and their shapes with it.
+---Destroys the world, taking all bodies, joints, fixtures and their shapes with it. 
 ---
 ---An error will occur if you attempt to use any of the destroyed objects after calling this function.
 ---
@@ -3117,19 +3114,17 @@ function World:isSleepingAllowed() end
 function World:queryBoundingBox(topLeftX, topLeftY, bottomRightX, bottomRightY, callback) end
 
 ---
----Casts a ray and calls a function for each fixtures it intersects.
+---Casts a ray and calls a function for each fixtures it intersects. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/World:rayCast)
 ---
----@param fixture love.Fixture # The fixture intersecting the ray.
----@param x number # The x position of the intersection point.
----@param y number # The y position of the intersection point.
----@param xn number # The x value of the surface normal vector of the shape edge.
----@param yn number # The y value of the surface normal vector of the shape edge.
----@param fraction number # The position of the intersection on the ray as a number from 0 to 1 (or even higher if the ray length was changed with the return value).
----@return number control # The ray can be controlled with the return value. A positive value sets a new ray length where 1 is the default value. A value of 0 terminates the ray. If the callback function returns -1, the intersection gets ignored as if it didn't happen.
-function World:rayCast(fixture, x, y, xn, yn, fraction) end
+---@param x1 number # The x position of the starting point of the ray.
+---@param y1 number # The x position of the starting point of the ray.
+---@param x2 number # The x position of the end point of the ray.
+---@param y2 number # The x value of the surface normal vector of the shape edge.
+---@param callback function # A function called for each fixture intersected by the ray. The function gets six arguments and should return a number as a control value. The intersection points fed into the function will be in an arbitrary order. If you wish to find the closest point of intersection, you'll need to do that yourself within the function. The easiest way to do that is by using the fraction value.
+function World:rayCast(x1, y1, x2, y2, callback) end
 
 ---
 ---Sets functions for the collision callbacks during the world update.
@@ -3201,7 +3196,7 @@ function World:translateOrigin(x, y) end
 function World:update(dt, velocityiterations, positioniterations) end
 
 ---
----The types of a Body.
+---The types of a Body. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/BodyType)
