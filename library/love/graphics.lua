@@ -107,7 +107,7 @@ function love.graphics.discard(discardcolor, discardstencil) end
 ---
 ---Objects are drawn relative to their local coordinate system. The origin is by default located at the top left corner of Image and Canvas. All scaling, shearing, and rotation arguments transform the object relative to that point. Also, the position of the origin can be specified on the screen coordinate system.
 ---
----It's possible to rotate an object about its center by offsetting the origin to the center. Angles must be given in radians for rotation. One can also use a negative scaling factor to flip about its centerline.
+---It's possible to rotate an object about its center by offsetting the origin to the center. Angles must be given in radians for rotation. One can also use a negative scaling factor to flip about its centerline. 
 ---
 ---Note that the offsets are applied before rotation, scaling, or shearing; scaling and shearing are applied before rotation.
 ---
@@ -455,7 +455,7 @@ function love.graphics.getPointSize() end
 ---
 ---@return string name # The name of the renderer, e.g. 'OpenGL' or 'OpenGL ES'.
 ---@return string version # The version of the renderer with some extra driver-dependent version info, e.g. '2.1 INTEL-8.10.44'.
----@return string vendor # The name of the graphics card vendor, e.g. 'Intel Inc'.
+---@return string vendor # The name of the graphics card vendor, e.g. 'Intel Inc'. 
 ---@return string device # The name of the graphics card, e.g. 'Intel HD Graphics 3000 OpenGL Engine'.
 function love.graphics.getRendererInfo() end
 
@@ -490,7 +490,7 @@ function love.graphics.getShader() end
 function love.graphics.getStackDepth() end
 
 ---
----Gets performance-related rendering statistics.
+---Gets performance-related rendering statistics. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.getStats)
@@ -836,6 +836,7 @@ function love.graphics.newSpriteBatch(image, maxsprites) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.newText)
 ---
+---@overload fun(font: love.Font, coloredtext: table):love.Text
 ---@param font love.Font # The font to use for the text.
 ---@param textstring? string # The initial string of text that the new Text object will contain. May be nil.
 ---@return love.Text text # The new drawable Text object.
@@ -1141,7 +1142,7 @@ function love.graphics.setColorMask(red, green, blue, alpha) end
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.setDefaultFilter)
 ---
 ---@param min love.FilterMode # Filter mode used when scaling the image down.
----@param mag love.FilterMode # Filter mode used when scaling the image up.
+---@param mag? love.FilterMode # Filter mode used when scaling the image up.
 ---@param anisotropy? number # Maximum amount of Anisotropic Filtering used.
 function love.graphics.setDefaultFilter(min, mag, anisotropy) end
 
@@ -1246,7 +1247,7 @@ function love.graphics.setPointSize(size) end
 ---
 ---Sets or disables scissor.
 ---
----The scissor limits the drawing area to a specified rectangle. This affects all graphics calls, including love.graphics.clear.
+---The scissor limits the drawing area to a specified rectangle. This affects all graphics calls, including love.graphics.clear. 
 ---
 ---The dimensions of the scissor is unaffected by graphical transformations (translate, scale, ...).
 ---
@@ -1335,7 +1336,7 @@ function love.graphics.transformPoint(globalX, globalY) end
 ---
 ---Translates the coordinate system in two dimensions.
 ---
----When this function is called with two numbers, dx, and dy, all the following drawing operations take effect as if their x and y coordinates were x+dx and y+dy.
+---When this function is called with two numbers, dx, and dy, all the following drawing operations take effect as if their x and y coordinates were x+dx and y+dy. 
 ---
 ---Scale and translate are not commutative operations, therefore, calling them in different orders will change the outcome.
 ---
@@ -1628,15 +1629,6 @@ function Font:setLineHeight(height) end
 local Image = {}
 
 ---
----Gets the flags used when the image was created.
----
----
----[Open in Browser](https://love2d.org/wiki/Image:getFlags)
----
----@return table flags # A table with ImageFlag keys.
-function Image:getFlags() end
-
----
 ---Gets whether the Image was created from CompressedData.
 ---
 ---Compressed images take up less space in VRAM, and drawing a compressed image will generally be more efficient than drawing one created from raw pixel data.
@@ -1648,17 +1640,28 @@ function Image:getFlags() end
 function Image:isCompressed() end
 
 ---
+---Gets whether the Image was created with the linear (non-gamma corrected) flag set to true.
+---
+---This method always returns false when gamma-correct rendering is not enabled.
+---
+---
+---[Open in Browser](https://love2d.org/wiki/Image:isFormatLinear)
+---
+---@return boolean linear # Whether the Image's internal pixel format is linear (not gamma corrected), when gamma-correct rendering is enabled.
+function Image:isFormatLinear() end
+
+---
 ---Replace the contents of an Image.
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Image:replacePixels)
 ---
 ---@param data love.ImageData # The new ImageData to replace the contents with.
----@param slice number # Which cubemap face, array index, or volume layer to replace, if applicable.
+---@param slice? number # Which cubemap face, array index, or volume layer to replace, if applicable.
 ---@param mipmap? number # The mimap level to replace, if the Image has mipmaps.
 ---@param x? number # The x-offset in pixels from the top-left of the image to replace. The given ImageData's width plus this value must not be greater than the pixel width of the Image's specified mipmap level.
 ---@param y? number # The y-offset in pixels from the top-left of the image to replace. The given ImageData's height plus this value must not be greater than the pixel height of the Image's specified mipmap level.
----@param reloadmipmaps boolean # Whether to generate new mipmaps after replacing the Image's pixels. True by default if the Image was created with automatically generated mipmaps, false by default otherwise.
+---@param reloadmipmaps? boolean # Whether to generate new mipmaps after replacing the Image's pixels. True by default if the Image was created with automatically generated mipmaps, false by default otherwise.
 function Image:replacePixels(data, slice, mipmap, x, y, reloadmipmaps) end
 
 ---
@@ -1690,6 +1693,18 @@ function Mesh:attachAttribute(name, mesh) end
 ---@param name string # The name of the attached vertex attribute to detach.
 ---@return boolean success # Whether the attribute was successfully detached.
 function Mesh:detachAttribute(name) end
+
+---
+---Immediately sends all modified vertex data in the Mesh to the graphics card.
+---
+---Normally it isn't necessary to call this method as love.graphics.draw(mesh, ...) will do it automatically if needed, but explicitly using **Mesh:flush** gives more control over when the work happens.
+---
+---If this method is used, it generally shouldn't be called more than once (at most) between love.graphics.draw(mesh, ...) calls.
+---
+---
+---[Open in Browser](https://love2d.org/wiki/Mesh:flush)
+---
+function Mesh:flush() end
 
 ---
 ---Gets the mode used when drawing the Mesh.
@@ -1879,7 +1894,8 @@ function Mesh:setVertexMap(map) end
 ---@overload fun(self: love.Mesh, vertices: table)
 ---@param vertices {attributecomponent: number} # The table filled with vertex information tables for each vertex, in the form of {vertex, ...} where each vertex is a table in the form of {attributecomponent, ...}.
 ---@param startvertex? number # The index of the first vertex to replace.
-function Mesh:setVertices(vertices, startvertex) end
+---@param count? number # Amount of vertices to replace.
+function Mesh:setVertices(vertices, startvertex, count) end
 
 ---
 ---A ParticleSystem can be used to create particle effects like fire or smoke.
@@ -3190,7 +3206,7 @@ function Texture:setDepthSampleMode(compare) end
 ---[Open in Browser](https://love2d.org/wiki/Texture:setFilter)
 ---
 ---@param min love.FilterMode # Filter mode to use when minifying the texture (rendering it at a smaller size on-screen than its size in pixels).
----@param mag love.FilterMode # Filter mode to use when magnifying the texture (rendering it at a larger size on-screen than its size in pixels).
+---@param mag? love.FilterMode # Filter mode to use when magnifying the texture (rendering it at a larger size on-screen than its size in pixels).
 ---@param anisotropy? number # Maximum amount of anisotropic filtering to use.
 function Texture:setFilter(min, mag, anisotropy) end
 
@@ -3813,7 +3829,7 @@ function Video:tell() end
 ---
 ---@alias love.SpriteBatchUsage
 ---
----The object's data will change occasionally during its lifetime.
+---The object's data will change occasionally during its lifetime. 
 ---
 ---| "dynamic"
 ---

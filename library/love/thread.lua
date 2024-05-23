@@ -196,7 +196,7 @@ function Thread:isRunning() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Thread:start)
 ---
----@overload fun(self: love.Thread, arg1: any, arg2: any, ...)
+---@overload fun(self: love.Thread, ...)
 function Thread:start() end
 
 ---

@@ -42,31 +42,6 @@ function love.math.colorFromBytes(rb, gb, bb, ab) end
 function love.math.colorToBytes(r, g, b, a) end
 
 ---
----Compresses a string or data using a specific compression algorithm.
----
----
----[Open in Browser](https://love2d.org/wiki/love.math.compress)
----
----@overload fun(data: love.Data, format?: love.CompressedDataFormat, level?: number):love.CompressedData
----@param rawstring string # The raw (un-compressed) string to compress.
----@param format? love.CompressedDataFormat # The format to use when compressing the string.
----@param level? number # The level of compression to use, between 0 and 9. -1 indicates the default level. The meaning of this argument depends on the compression format being used.
----@return love.CompressedData compressedData # A new Data object containing the compressed version of the string.
-function love.math.compress(rawstring, format, level) end
-
----
----Decompresses a CompressedData or previously compressed string or Data object.
----
----
----[Open in Browser](https://love2d.org/wiki/love.math.decompress)
----
----@overload fun(compressedstring: string, format: love.CompressedDataFormat):string
----@overload fun(data: love.Data, format: love.CompressedDataFormat):string
----@param compressedData love.CompressedData # The compressed data to decompress.
----@return string rawstring # A string containing the raw decompressed data.
-function love.math.decompress(compressedData) end
-
----
 ---Converts a color from gamma-space (sRGB) to linear-space (RGB). This is useful when doing gamma-correct rendering and you need to do math in linear RGB in the few cases where LÖVE doesn't handle conversions automatically.
 ---
 ---Read more about gamma-correct rendering here, here, and here.
@@ -638,25 +613,7 @@ function Transform:scale(sx, sy) end
 ---@param e4_3 number # The third column of the fourth row of the matrix.
 ---@param e4_4 number # The fourth column of the fourth row of the matrix.
 ---@return love.Transform transform # The Transform object the method was called on. Allows easily chaining Transform methods.
-function Transform:setMatrix(
-	e1_1,
-	e1_2,
-	e1_3,
-	e1_4,
-	e2_1,
-	e2_2,
-	e2_3,
-	e2_4,
-	e3_1,
-	e3_2,
-	e3_3,
-	e3_4,
-	e4_1,
-	e4_2,
-	e4_3,
-	e4_4
-)
-end
+function Transform:setMatrix(e1_1, e1_2, e1_3, e1_4, e2_1, e2_2, e2_3, e2_4, e3_1, e3_2, e3_3, e3_4, e4_1, e4_2, e4_3, e4_4) end
 
 ---
 ---Resets the Transform to the specified transformation parameters.

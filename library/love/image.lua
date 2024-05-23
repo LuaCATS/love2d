@@ -234,6 +234,7 @@ function ImageData:paste(source, dx, dy, sx, sy, sw, sh) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/ImageData:setPixel)
 ---
+---@overload fun(self: love.ImageData, x: number, y: number, color: table)
 ---@param x number # The position of the pixel on the x-axis.
 ---@param y number # The position of the pixel on the y-axis.
 ---@param r number # The red component (0-1).
