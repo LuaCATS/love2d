@@ -945,12 +945,14 @@ function love.graphics.present() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.print)
 ---
----@overload fun(coloredtext: table, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(text: string, transform: love.Transform)
----@overload fun(coloredtext: table, transform: love.Transform)
 ---@overload fun(text: string, font: love.Font, transform: love.Transform)
+---@overload fun(text: number, transform: love.Transform)
+---@overload fun(test: number, font: love.Font, transform: love.Transform)
+---@overload fun(coloredtext: table, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
+---@overload fun(coloredtext: table, transform: love.Transform)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform)
----@param text string # The text to draw.
+---@param text string|number # The text to draw.
 ---@param x? number # The position to draw the object (x-axis).
 ---@param y? number # The position to draw the object (y-axis).
 ---@param r? number # Orientation (radians).
@@ -979,11 +981,14 @@ function love.graphics.print(text, x, y, r, sx, sy, ox, oy, kx, ky) end
 ---@overload fun(text: string, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(text: string, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(text: string, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
+---@overload fun(text: number, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
+---@overload fun(text: number, transform: love.Transform, limit: number, align?: love.AlignMode)
+---@overload fun(text: number, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, x: number, y: number, limit: number, align: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
----@param text string # A text string.
+---@param text string|number # A text string.
 ---@param x number # The position on the x-axis.
 ---@param y number # The position on the y-axis.
 ---@param limit number # Wrap the line after this many horizontal pixels.
@@ -1557,7 +1562,7 @@ function Font:getLineHeight() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Font:getWidth)
 ---
----@param text string # A string.
+---@param text string|number # A string or number.
 ---@return number width # The width of the text.
 function Font:getWidth(text) end
 
