@@ -106,7 +106,7 @@ function love.window.getFullscreen() end
 ---[Open in Browser](https://love2d.org/wiki/love.window.getFullscreenModes)
 ---
 ---@param displayindex? number # The index of the display, if multiple monitors are available.
----@return table modes # A table of width/height pairs. (Note that this may not be in order.)
+---@return {width: number, height: number} modes # A table of width/height pairs. (Note that this may not be in order.)
 function love.window.getFullscreenModes(displayindex) end
 
 ---
@@ -313,7 +313,7 @@ function love.window.setIcon(imagedata) end
 ---
 ---Sets the display mode and properties of the window.
 ---
----If width or height is 0, setMode will use the width and height of the desktop.
+---If width or height is 0, setMode will use the width and height of the desktop. 
 ---
 ---Changing the display mode may have side effects: for example, canvases will be cleared and values sent to shaders with canvases beforehand or re-draw to them afterward if you need to.
 ---
@@ -391,7 +391,7 @@ function love.window.toPixels(value) end
 ---
 ---Sets the display mode and properties of the window, without modifying unspecified properties.
 ---
----If width or height is 0, updateMode will use the width and height of the desktop.
+---If width or height is 0, updateMode will use the width and height of the desktop. 
 ---
 ---Changing the display mode may have side effects: for example, canvases will be cleared. Make sure to save the contents of canvases beforehand or re-draw to them afterward if you need to.
 ---

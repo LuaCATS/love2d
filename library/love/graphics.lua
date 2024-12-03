@@ -107,7 +107,7 @@ function love.graphics.discard(discardcolor, discardstencil) end
 ---
 ---Objects are drawn relative to their local coordinate system. The origin is by default located at the top left corner of Image and Canvas. All scaling, shearing, and rotation arguments transform the object relative to that point. Also, the position of the origin can be specified on the screen coordinate system.
 ---
----It's possible to rotate an object about its center by offsetting the origin to the center. Angles must be given in radians for rotation. One can also use a negative scaling factor to flip about its centerline.
+---It's possible to rotate an object about its center by offsetting the origin to the center. Angles must be given in radians for rotation. One can also use a negative scaling factor to flip about its centerline. 
 ---
 ---Note that the offsets are applied before rotation, scaling, or shearing; scaling and shearing are applied before rotation.
 ---
@@ -455,7 +455,7 @@ function love.graphics.getPointSize() end
 ---
 ---@return string name # The name of the renderer, e.g. 'OpenGL' or 'OpenGL ES'.
 ---@return string version # The version of the renderer with some extra driver-dependent version info, e.g. '2.1 INTEL-8.10.44'.
----@return string vendor # The name of the graphics card vendor, e.g. 'Intel Inc'.
+---@return string vendor # The name of the graphics card vendor, e.g. 'Intel Inc'. 
 ---@return string device # The name of the graphics card, e.g. 'Intel HD Graphics 3000 OpenGL Engine'.
 function love.graphics.getRendererInfo() end
 
@@ -490,7 +490,7 @@ function love.graphics.getShader() end
 function love.graphics.getStackDepth() end
 
 ---
----Gets performance-related rendering statistics.
+---Gets performance-related rendering statistics. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.getStats)
@@ -945,14 +945,12 @@ function love.graphics.present() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.print)
 ---
----@overload fun(text: string, transform: love.Transform)
----@overload fun(text: string, font: love.Font, transform: love.Transform)
----@overload fun(text: number, transform: love.Transform)
----@overload fun(test: number, font: love.Font, transform: love.Transform)
 ---@overload fun(coloredtext: table, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
+---@overload fun(text: string, transform: love.Transform)
 ---@overload fun(coloredtext: table, transform: love.Transform)
+---@overload fun(text: string, font: love.Font, transform: love.Transform)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform)
----@param text string|number # The text to draw.
+---@param text string # The text to draw.
 ---@param x? number # The position to draw the object (x-axis).
 ---@param y? number # The position to draw the object (y-axis).
 ---@param r? number # Orientation (radians).
@@ -981,14 +979,11 @@ function love.graphics.print(text, x, y, r, sx, sy, ox, oy, kx, ky) end
 ---@overload fun(text: string, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(text: string, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(text: string, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
----@overload fun(text: number, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
----@overload fun(text: number, transform: love.Transform, limit: number, align?: love.AlignMode)
----@overload fun(text: number, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, x: number, y: number, limit: number, align: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
----@param text string|number # A text string.
+---@param text string # A text string.
 ---@param x number # The position on the x-axis.
 ---@param y number # The position on the y-axis.
 ---@param limit number # Wrap the line after this many horizontal pixels.
@@ -1252,7 +1247,7 @@ function love.graphics.setPointSize(size) end
 ---
 ---Sets or disables scissor.
 ---
----The scissor limits the drawing area to a specified rectangle. This affects all graphics calls, including love.graphics.clear.
+---The scissor limits the drawing area to a specified rectangle. This affects all graphics calls, including love.graphics.clear. 
 ---
 ---The dimensions of the scissor is unaffected by graphical transformations (translate, scale, ...).
 ---
@@ -1341,7 +1336,7 @@ function love.graphics.transformPoint(globalX, globalY) end
 ---
 ---Translates the coordinate system in two dimensions.
 ---
----When this function is called with two numbers, dx, and dy, all the following drawing operations take effect as if their x and y coordinates were x+dx and y+dy.
+---When this function is called with two numbers, dx, and dy, all the following drawing operations take effect as if their x and y coordinates were x+dx and y+dy. 
 ---
 ---Scale and translate are not commutative operations, therefore, calling them in different orders will change the outcome.
 ---
@@ -1443,7 +1438,8 @@ function Canvas:newImageData() end
 ---[Open in Browser](https://love2d.org/wiki/Canvas:renderTo)
 ---
 ---@param func function # A function performing drawing operations.
-function Canvas:renderTo(func) end
+---@vararg any # Additional arguments to call the function with.
+function Canvas:renderTo(func, ...) end
 
 ---
 ---Superclass for all things that can be drawn on screen. This is an abstract type that can't be created directly.
@@ -1562,7 +1558,7 @@ function Font:getLineHeight() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Font:getWidth)
 ---
----@param text string|number # A string or number.
+---@param text string # A string.
 ---@return number width # The width of the text.
 function Font:getWidth(text) end
 
@@ -2264,20 +2260,13 @@ function ParticleSystem:setBufferSize(size) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/ParticleSystem:setColors)
 ---
----@overload fun(self: love.ParticleSystem, rgba1: table, rgba2: table, rgba8: table)
+---@overload fun(self: love.ParticleSystem, rgba1: table, ...)
 ---@param r1 number # First color, red component (0-1).
 ---@param g1 number # First color, green component (0-1).
 ---@param b1 number # First color, blue component (0-1).
 ---@param a1? number # First color, alpha component (0-1).
----@param r2? number # Second color, red component (0-1).
----@param g2? number # Second color, green component (0-1).
----@param b2? number # Second color, blue component (0-1).
----@param a2? number # Second color, alpha component (0-1).
----@param r8? number # Eighth color, red component (0-1).
----@param g8? number # Eighth color, green component (0-1).
----@param b8? number # Eighth color, blue component (0-1).
----@param a8? number # Eighth color, alpha component (0-1).
-function ParticleSystem:setColors(r1, g1, b1, a1, r2, g2, b2, a2, r8, g8, b8, a8) end
+---@vararg number # Additional colors.
+function ParticleSystem:setColors(r1, g1, b1, a1, ...) end
 
 ---
 ---Sets the direction the particles will be emitted in.
@@ -2392,8 +2381,8 @@ function ParticleSystem:setPosition(x, y) end
 ---
 ---@overload fun(self: love.ParticleSystem, quads: table)
 ---@param quad1 love.Quad # The first Quad to use.
----@param quad2 love.Quad # The second Quad to use.
-function ParticleSystem:setQuads(quad1, quad2) end
+---@vararg love.Quad # Additional Quads to use.
+function ParticleSystem:setQuads(quad1, ...) end
 
 ---
 ---Set the radial acceleration (away from the emitter).
@@ -2571,8 +2560,8 @@ function Quad:getViewport() end
 ---@param y number # The top-left corner along the y-axis.
 ---@param w number # The width of the viewport.
 ---@param h number # The height of the viewport.
----@param sw number # The reference width, the width of the Image. (Must be greater than 0.)
----@param sh number # The reference height, the height of the Image. (Must be greater than 0.)
+---@param sw? number # Optional new reference width, the width of the Texture. Must be greater than 0 if set.
+---@param sh? number # Optional new reference height, the height of the Texture. Must be greater than 0 if set.
 function Quad:setViewport(x, y, w, h, sw, sh) end
 
 ---
@@ -3834,7 +3823,7 @@ function Video:tell() end
 ---
 ---@alias love.SpriteBatchUsage
 ---
----The object's data will change occasionally during its lifetime.
+---The object's data will change occasionally during its lifetime. 
 ---
 ---| "dynamic"
 ---

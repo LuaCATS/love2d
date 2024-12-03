@@ -79,12 +79,12 @@ function love.audio.getMaxSourceEffects() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getOrientation)
 ---
----@return number fx # Forward vector of the listener orientation.
----@return number fy # Forward vector of the listener orientation.
----@return number fz # Forward vector of the listener orientation.
----@return number ux # Up vector of the listener orientation.
----@return number uy # Up vector of the listener orientation.
----@return number uz # Up vector of the listener orientation.
+---@return number fx # Forward x of the listener orientation.
+---@return number fy # Forward y of the listener orientation.
+---@return number fz # Forward z of the listener orientation.
+---@return number ux # Up x of the listener orientation.
+---@return number uy # Up y of the listener orientation.
+---@return number uz # Up z of the listener orientation.
 function love.audio.getOrientation() end
 
 ---
@@ -750,7 +750,7 @@ function Source:setPosition(x, y, z) end
 ---
 ---Sets whether the Source's position, velocity, direction, and cone angles are relative to the listener, or absolute.
 ---
----By default, all sources are absolute and therefore relative to the origin of love's coordinate system 0, 0. Only absolute sources are affected by the position of the listener. Please note that positional audio only works for mono (i.e. non-stereo) sources.
+---By default, all sources are absolute and therefore relative to the origin of love's coordinate system 0, 0. Only absolute sources are affected by the position of the listener. Please note that positional audio only works for mono (i.e. non-stereo) sources. 
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/Source:setRelative)

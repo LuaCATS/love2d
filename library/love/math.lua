@@ -92,7 +92,7 @@ function love.math.getRandomState() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.math.isConvex)
 ---
----@overload fun(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number):boolean
+---@overload fun(x1: number, y1: number, x2: number, y2: number, ...):boolean
 ---@param vertices table # The vertices of the polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 ---@return boolean convex # Whether the given polygon is convex.
 function love.math.isConvex(vertices) end
@@ -127,7 +127,7 @@ function love.math.linearToGamma(lr, lg, lb) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.math.newBezierCurve)
 ---
----@overload fun(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number):love.BezierCurve
+---@overload fun(x1: number, y1: number, x2: number, y2: number, ...):love.BezierCurve
 ---@param vertices table # The vertices of the control polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 ---@return love.BezierCurve curve # A Bézier curve object.
 function love.math.newBezierCurve(vertices) end
@@ -613,25 +613,7 @@ function Transform:scale(sx, sy) end
 ---@param e4_3 number # The third column of the fourth row of the matrix.
 ---@param e4_4 number # The fourth column of the fourth row of the matrix.
 ---@return love.Transform transform # The Transform object the method was called on. Allows easily chaining Transform methods.
-function Transform:setMatrix(
-	e1_1,
-	e1_2,
-	e1_3,
-	e1_4,
-	e2_1,
-	e2_2,
-	e2_3,
-	e2_4,
-	e3_1,
-	e3_2,
-	e3_3,
-	e3_4,
-	e4_1,
-	e4_2,
-	e4_3,
-	e4_4
-)
-end
+function Transform:setMatrix(e1_1, e1_2, e1_3, e1_4, e2_1, e2_2, e2_3, e2_4, e3_1, e3_2, e3_3, e3_4, e4_1, e4_2, e4_3, e4_4) end
 
 ---
 ---Resets the Transform to the specified transformation parameters.
