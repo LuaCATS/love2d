@@ -76,7 +76,7 @@ function love.filesystem.getCRequirePath() end
 ---
 ---@overload fun(dir: string, callback: function):table
 ---@param dir string # The directory.
----@return table files # A sequence with the names of all files and subdirectories as strings.
+---@return string[] files # A sequence with the names of all files and subdirectories as strings.
 function love.filesystem.getDirectoryItems(dir) end
 
 ---

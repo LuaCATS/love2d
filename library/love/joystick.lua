@@ -36,7 +36,7 @@ function love.joystick.getJoystickCount() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.joystick.getJoysticks)
 ---
----@return table joysticks # The list of currently connected Joysticks.
+---@return love.Joystick[] joysticks # The list of currently connected Joysticks.
 function love.joystick.getJoysticks() end
 
 ---

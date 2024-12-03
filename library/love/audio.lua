@@ -15,7 +15,7 @@ love.audio = {}
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getActiveEffects)
 ---
----@return table effects # The list of the names of the currently enabled effects.
+---@return string[] effects # The list of the names of the currently enabled effects.
 function love.audio.getActiveEffects() end
 
 ---
@@ -108,7 +108,7 @@ function love.audio.getPosition() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getRecordingDevices)
 ---
----@return table devices # The list of connected recording devices.
+---@return love.RecordingDevice[] devices # The list of connected recording devices.
 function love.audio.getRecordingDevices() end
 
 ---
@@ -178,7 +178,7 @@ function love.audio.newSource(filename, type) end
 ---
 ---@overload fun(source: love.Source, ...)
 ---@overload fun(sources: table)
----@return table Sources # A table containing a list of Sources that were paused by this call.
+---@return love.Source[] Sources # A table containing a list of Sources that were paused by this call.
 function love.audio.pause() end
 
 ---
@@ -416,7 +416,7 @@ function Source:clone() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Source:getActiveEffects)
 ---
----@return table effects # A list of the source's active effect names.
+---@return string[] effects # A list of the source's active effect names.
 function Source:getActiveEffects() end
 
 ---

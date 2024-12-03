@@ -491,7 +491,7 @@ function Body:getAngularVelocity() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:getContacts)
 ---
----@return table contacts # A list with all contacts associated with the Body.
+---@return love.Contact[] contacts # A list with all contacts associated with the Body.
 function Body:getContacts() end
 
 ---
@@ -500,7 +500,7 @@ function Body:getContacts() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:getFixtures)
 ---
----@return table fixtures # A sequence with all fixtures.
+---@return love.Fixture[] fixtures # A sequence with all fixtures.
 function Body:getFixtures() end
 
 ---
@@ -529,7 +529,7 @@ function Body:getInertia() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Body:getJoints)
 ---
----@return table joints # A sequence with the Joints attached to the Body.
+---@return love.Joint[] joints # A sequence with the Joints attached to the Body.
 function Body:getJoints() end
 
 ---
@@ -2989,7 +2989,7 @@ function World:destroy() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/World:getBodies)
 ---
----@return table bodies # A sequence with all bodies.
+---@return love.Body[] bodies # A sequence with all bodies.
 function World:getBodies() end
 
 ---
@@ -3037,7 +3037,7 @@ function World:getContactFilter() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/World:getContacts)
 ---
----@return table contacts # A sequence with all Contacts.
+---@return love.Contact[] contacts # A sequence with all Contacts.
 function World:getContacts() end
 
 ---
@@ -3065,7 +3065,7 @@ function World:getJointCount() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/World:getJoints)
 ---
----@return table joints # A sequence with all joints.
+---@return love.Joint[] joints # A sequence with all joints.
 function World:getJoints() end
 
 ---

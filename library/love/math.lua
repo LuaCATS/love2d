@@ -93,7 +93,7 @@ function love.math.getRandomState() end
 ---[Open in Browser](https://love2d.org/wiki/love.math.isConvex)
 ---
 ---@overload fun(x1: number, y1: number, x2: number, y2: number, ...):boolean
----@param vertices table # The vertices of the polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
+---@param vertices number[] # The vertices of the polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 ---@return boolean convex # Whether the given polygon is convex.
 function love.math.isConvex(vertices) end
 
@@ -128,7 +128,7 @@ function love.math.linearToGamma(lr, lg, lb) end
 ---[Open in Browser](https://love2d.org/wiki/love.math.newBezierCurve)
 ---
 ---@overload fun(x1: number, y1: number, x2: number, y2: number, ...):love.BezierCurve
----@param vertices table # The vertices of the control polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
+---@param vertices number[] # The vertices of the control polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 ---@return love.BezierCurve curve # A Bézier curve object.
 function love.math.newBezierCurve(vertices) end
 
@@ -330,7 +330,7 @@ function BezierCurve:removeControlPoint(index) end
 ---[Open in Browser](https://love2d.org/wiki/BezierCurve:render)
 ---
 ---@param depth? number # Number of recursive subdivision steps.
----@return table coordinates # List of x,y-coordinate pairs of points on the curve.
+---@return number[] coordinates # List of x,y-coordinate pairs of points on the curve.
 function BezierCurve:render(depth) end
 
 ---
@@ -346,7 +346,7 @@ function BezierCurve:render(depth) end
 ---@param startpoint number # The starting point along the curve. Must be between 0 and 1.
 ---@param endpoint number # The end of the segment to render. Must be between 0 and 1.
 ---@param depth? number # Number of recursive subdivision steps.
----@return table coordinates # List of x,y-coordinate pairs of points on the specified part of the curve.
+---@return number[] coordinates # List of x,y-coordinate pairs of points on the specified part of the curve.
 function BezierCurve:renderSegment(startpoint, endpoint, depth) end
 
 ---

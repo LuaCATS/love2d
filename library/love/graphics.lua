@@ -1573,7 +1573,7 @@ function Font:getWidth(text) end
 ---@param text string # The text that will be wrapped.
 ---@param wraplimit number # The maximum width in pixels of each line that ''text'' is allowed before wrapping.
 ---@return number width # The maximum width of the wrapped text.
----@return table wrappedtext # A sequence containing each line of text that was wrapped.
+---@return string[] wrappedtext # A sequence containing each line of text that was wrapped.
 function Font:getWrap(text, wraplimit) end
 
 ---
@@ -1788,7 +1788,7 @@ function Mesh:getVertexFormat() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Mesh:getVertexMap)
 ---
----@return table map # A table containing the list of vertex indices used when drawing.
+---@return number[] map # A table containing the list of vertex indices used when drawing.
 function Mesh:getVertexMap() end
 
 ---
@@ -2078,7 +2078,7 @@ function ParticleSystem:getPosition() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/ParticleSystem:getQuads)
 ---
----@return table quads # A table containing the Quads used.
+---@return love.Quad[] quads # A table containing the Quads used.
 function ParticleSystem:getQuads() end
 
 ---
@@ -2652,8 +2652,8 @@ function Shader:send(name, number, ...) end
 ---[Open in Browser](https://love2d.org/wiki/Shader:sendColor)
 ---
 ---@param name string # The name of the color extern variable to send to in the shader.
----@param color table # A table with red, green, blue, and optional alpha color components in the range of 1 to send to the extern as a vector.
----@vararg table # Additional colors to send in case the extern is an array. All colors need to be of the same size (e.g. only vec3's).
+---@param color number[] # A table with red, green, blue, and optional alpha color components in the range of 1 to send to the extern as a vector.
+---@vararg number[] # Additional colors to send in case the extern is an array. All colors need to be of the same size (e.g. only vec3's).
 function Shader:sendColor(name, color, ...) end
 
 ---
