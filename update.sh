@@ -17,6 +17,11 @@ cd .. || exit
 rm -r library
 cp -r lua-language-server/meta/3rd/love2d/library/ library
 
+# Install and run formatter
+cargo install stylua --features luajit
+export PATH="~/.cargo/bin:$PATH"
+stylua library
+
 # Commit changes
 git add library
 git commit -m "Updated meta files"
