@@ -15,7 +15,7 @@ love.audio = {}
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getActiveEffects)
 ---
----@return table effects # The list of the names of the currently enabled effects.
+---@return string[] effects # The list of the names of the currently enabled effects.
 function love.audio.getActiveEffects() end
 
 ---
@@ -79,12 +79,12 @@ function love.audio.getMaxSourceEffects() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getOrientation)
 ---
----@return number fx # Forward vector of the listener orientation.
----@return number fy # Forward vector of the listener orientation.
----@return number fz # Forward vector of the listener orientation.
----@return number ux # Up vector of the listener orientation.
----@return number uy # Up vector of the listener orientation.
----@return number uz # Up vector of the listener orientation.
+---@return number fx # Forward x of the listener orientation.
+---@return number fy # Forward y of the listener orientation.
+---@return number fz # Forward z of the listener orientation.
+---@return number ux # Up x of the listener orientation.
+---@return number uy # Up y of the listener orientation.
+---@return number uz # Up z of the listener orientation.
 function love.audio.getOrientation() end
 
 ---
@@ -108,7 +108,7 @@ function love.audio.getPosition() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.audio.getRecordingDevices)
 ---
----@return table devices # The list of connected recording devices.
+---@return love.RecordingDevice[] devices # The list of connected recording devices.
 function love.audio.getRecordingDevices() end
 
 ---
@@ -178,7 +178,7 @@ function love.audio.newSource(filename, type) end
 ---
 ---@overload fun(source: love.Source, ...)
 ---@overload fun(sources: table)
----@return table Sources # A table containing a list of Sources that were paused by this call.
+---@return love.Source[] Sources # A table containing a list of Sources that were paused by this call.
 function love.audio.pause() end
 
 ---
@@ -416,7 +416,7 @@ function Source:clone() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Source:getActiveEffects)
 ---
----@return table effects # A list of the source's active effect names.
+---@return string[] effects # A list of the source's active effect names.
 function Source:getActiveEffects() end
 
 ---

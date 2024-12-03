@@ -36,5 +36,5 @@ function love.touch.getPressure(id) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.touch.getTouches)
 ---
----@return table touches # A list of active touch-press id values, which can be used with love.touch.getPosition.
+---@return lightuserdata[] touches # A list of active touch-press id values, which can be used with love.touch.getPosition.
 function love.touch.getTouches() end

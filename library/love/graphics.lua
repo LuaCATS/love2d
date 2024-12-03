@@ -945,14 +945,12 @@ function love.graphics.present() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.graphics.print)
 ---
----@overload fun(text: string, transform: love.Transform)
----@overload fun(text: string, font: love.Font, transform: love.Transform)
----@overload fun(text: number, transform: love.Transform)
----@overload fun(test: number, font: love.Font, transform: love.Transform)
 ---@overload fun(coloredtext: table, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
+---@overload fun(text: string, transform: love.Transform)
 ---@overload fun(coloredtext: table, transform: love.Transform)
+---@overload fun(text: string, font: love.Font, transform: love.Transform)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform)
----@param text string|number # The text to draw.
+---@param text string # The text to draw.
 ---@param x? number # The position to draw the object (x-axis).
 ---@param y? number # The position to draw the object (y-axis).
 ---@param r? number # Orientation (radians).
@@ -981,14 +979,11 @@ function love.graphics.print(text, x, y, r, sx, sy, ox, oy, kx, ky) end
 ---@overload fun(text: string, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(text: string, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(text: string, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
----@overload fun(text: number, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, r?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
----@overload fun(text: number, transform: love.Transform, limit: number, align?: love.AlignMode)
----@overload fun(text: number, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, x: number, y: number, limit: number, align: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, font: love.Font, x: number, y: number, limit: number, align?: love.AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number)
 ---@overload fun(coloredtext: table, transform: love.Transform, limit: number, align?: love.AlignMode)
 ---@overload fun(coloredtext: table, font: love.Font, transform: love.Transform, limit: number, align?: love.AlignMode)
----@param text string|number # A text string.
+---@param text string # A text string.
 ---@param x number # The position on the x-axis.
 ---@param y number # The position on the y-axis.
 ---@param limit number # Wrap the line after this many horizontal pixels.
@@ -1443,7 +1438,8 @@ function Canvas:newImageData() end
 ---[Open in Browser](https://love2d.org/wiki/Canvas:renderTo)
 ---
 ---@param func function # A function performing drawing operations.
-function Canvas:renderTo(func) end
+---@vararg any # Additional arguments to call the function with.
+function Canvas:renderTo(func, ...) end
 
 ---
 ---Superclass for all things that can be drawn on screen. This is an abstract type that can't be created directly.
@@ -1562,7 +1558,7 @@ function Font:getLineHeight() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Font:getWidth)
 ---
----@param text string|number # A string or number.
+---@param text string # A string.
 ---@return number width # The width of the text.
 function Font:getWidth(text) end
 
@@ -1577,7 +1573,7 @@ function Font:getWidth(text) end
 ---@param text string # The text that will be wrapped.
 ---@param wraplimit number # The maximum width in pixels of each line that ''text'' is allowed before wrapping.
 ---@return number width # The maximum width of the wrapped text.
----@return table wrappedtext # A sequence containing each line of text that was wrapped.
+---@return string[] wrappedtext # A sequence containing each line of text that was wrapped.
 function Font:getWrap(text, wraplimit) end
 
 ---
@@ -1792,7 +1788,7 @@ function Mesh:getVertexFormat() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/Mesh:getVertexMap)
 ---
----@return table map # A table containing the list of vertex indices used when drawing.
+---@return number[] map # A table containing the list of vertex indices used when drawing.
 function Mesh:getVertexMap() end
 
 ---
@@ -2082,7 +2078,7 @@ function ParticleSystem:getPosition() end
 ---
 ---[Open in Browser](https://love2d.org/wiki/ParticleSystem:getQuads)
 ---
----@return table quads # A table containing the Quads used.
+---@return love.Quad[] quads # A table containing the Quads used.
 function ParticleSystem:getQuads() end
 
 ---
@@ -2264,20 +2260,13 @@ function ParticleSystem:setBufferSize(size) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/ParticleSystem:setColors)
 ---
----@overload fun(self: love.ParticleSystem, rgba1: table, rgba2: table, rgba8: table)
+---@overload fun(self: love.ParticleSystem, rgba1: table, ...)
 ---@param r1 number # First color, red component (0-1).
 ---@param g1 number # First color, green component (0-1).
 ---@param b1 number # First color, blue component (0-1).
 ---@param a1? number # First color, alpha component (0-1).
----@param r2? number # Second color, red component (0-1).
----@param g2? number # Second color, green component (0-1).
----@param b2? number # Second color, blue component (0-1).
----@param a2? number # Second color, alpha component (0-1).
----@param r8? number # Eighth color, red component (0-1).
----@param g8? number # Eighth color, green component (0-1).
----@param b8? number # Eighth color, blue component (0-1).
----@param a8? number # Eighth color, alpha component (0-1).
-function ParticleSystem:setColors(r1, g1, b1, a1, r2, g2, b2, a2, r8, g8, b8, a8) end
+---@vararg number # Additional colors.
+function ParticleSystem:setColors(r1, g1, b1, a1, ...) end
 
 ---
 ---Sets the direction the particles will be emitted in.
@@ -2392,8 +2381,8 @@ function ParticleSystem:setPosition(x, y) end
 ---
 ---@overload fun(self: love.ParticleSystem, quads: table)
 ---@param quad1 love.Quad # The first Quad to use.
----@param quad2 love.Quad # The second Quad to use.
-function ParticleSystem:setQuads(quad1, quad2) end
+---@vararg love.Quad # Additional Quads to use.
+function ParticleSystem:setQuads(quad1, ...) end
 
 ---
 ---Set the radial acceleration (away from the emitter).
@@ -2571,8 +2560,8 @@ function Quad:getViewport() end
 ---@param y number # The top-left corner along the y-axis.
 ---@param w number # The width of the viewport.
 ---@param h number # The height of the viewport.
----@param sw number # The reference width, the width of the Image. (Must be greater than 0.)
----@param sh number # The reference height, the height of the Image. (Must be greater than 0.)
+---@param sw? number # Optional new reference width, the width of the Texture. Must be greater than 0 if set.
+---@param sh? number # Optional new reference height, the height of the Texture. Must be greater than 0 if set.
 function Quad:setViewport(x, y, w, h, sw, sh) end
 
 ---
@@ -2663,8 +2652,8 @@ function Shader:send(name, number, ...) end
 ---[Open in Browser](https://love2d.org/wiki/Shader:sendColor)
 ---
 ---@param name string # The name of the color extern variable to send to in the shader.
----@param color table # A table with red, green, blue, and optional alpha color components in the range of 1 to send to the extern as a vector.
----@vararg table # Additional colors to send in case the extern is an array. All colors need to be of the same size (e.g. only vec3's).
+---@param color number[] # A table with red, green, blue, and optional alpha color components in the range of 1 to send to the extern as a vector.
+---@vararg number[] # Additional colors to send in case the extern is an array. All colors need to be of the same size (e.g. only vec3's).
 function Shader:sendColor(name, color, ...) end
 
 ---

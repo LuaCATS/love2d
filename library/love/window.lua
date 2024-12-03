@@ -106,7 +106,7 @@ function love.window.getFullscreen() end
 ---[Open in Browser](https://love2d.org/wiki/love.window.getFullscreenModes)
 ---
 ---@param displayindex? number # The index of the display, if multiple monitors are available.
----@return table modes # A table of width/height pairs. (Note that this may not be in order.)
+---@return {width: number, height: number} modes # A table of width/height pairs. (Note that this may not be in order.)
 function love.window.getFullscreenModes(displayindex) end
 
 ---
