@@ -52,13 +52,28 @@ function love.isVersionCompatible(version) end
 ---@param enable boolean # Whether to enable or disable deprecation output.
 function love.setDeprecationOutput(enable) end
 
+---LÖVE 2d Init config.
+---This gets called on start.
+---(CUSTOM)
+---@class LoveConfig
+---@field identity string
+---@field appendidentity boolean
+---@field version string
+---@field console boolean
+---@field accelerometerjoystick boolean 
+---@field externalstorage boolean
+---@field gammacorrect boolean
+---@field audio {mic:boolean, mixwithsystem:boolean}
+---@field window {title:string, icon:string, width:number, height:number, borderless:boolean, resizable:boolean, minwidth:number, minheight:number, fullscreen:boolean, fullscreentype:"desktop"|"exclusive", vsync:number, msaa:number, depth:number, stencil:number, display:number, highdpi:boolean, usedpiscale:boolean, x:number, y:number}
+---@field modules {audio:boolean, data:boolean, event:boolean, font:boolean, graphics:boolean, image:boolean, joystick:boolean, keyboard:boolean, math:boolean, mouse:boolean, physics:boolean, sound:boolean, system:boolean, thread:boolean, timer:boolean, touch:boolean, video:boolean, window:boolean}
+
 ---
 ---If a file called conf.lua is present in your game folder (or .love file), it is run before the LÖVE modules are loaded. You can use this file to overwrite the love.conf function, which is later called by the LÖVE 'boot' script. Using the love.conf function, you can set some configuration options, and change things like the default size of the window, which modules are loaded, and other stuff.
 ---
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.conf)
 ---
----@param t {identity:string, appendidentity:boolean, version:string, console:boolean, accelerometerjoystick:boolean, externalstorage:boolean, gammacorrect:boolean, audio:{mic:boolean, mixwithsystem:boolean}, window:{title:string, icon:string, width:number, height:number, borderless:boolean, resizable:boolean, minwidth:number, minheight:number, fullscreen:boolean, fullscreentype:"desktop"|"exclusive", vsync:number, msaa:number, depth:number, stencil:number, display:number, highdpi:boolean, usedpiscale:boolean, x:number, y:number}, modules:{audio:boolean, data:boolean, event:boolean, font:boolean, graphics:boolean, image:boolean, joystick:boolean, keyboard:boolean, math:boolean, mouse:boolean, physics:boolean, sound:boolean, system:boolean, thread:boolean, timer:boolean, touch:boolean, video:boolean, window:boolean}}
+---@param t LoveConfig --{identity:string, appendidentity:boolean, version:string, console:boolean, accelerometerjoystick:boolean, externalstorage:boolean, gammacorrect:boolean, audio:{mic:boolean, mixwithsystem:boolean}, window:{title:string, icon:string, width:number, height:number, borderless:boolean, resizable:boolean, minwidth:number, minheight:number, fullscreen:boolean, fullscreentype:"desktop"|"exclusive", vsync:number, msaa:number, depth:number, stencil:number, display:number, highdpi:boolean, usedpiscale:boolean, x:number, y:number}, modules:{audio:boolean, data:boolean, event:boolean, font:boolean, graphics:boolean, image:boolean, joystick:boolean, keyboard:boolean, math:boolean, mouse:boolean, physics:boolean, sound:boolean, system:boolean, thread:boolean, timer:boolean, touch:boolean, video:boolean, window:boolean}}
 function love.conf(t) end
 
 ---
