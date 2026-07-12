@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-doc-name
 ---@meta
 
 -- version: 11.5
