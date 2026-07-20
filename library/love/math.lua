@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-return, undefined-doc-class
 ---@meta
 
 ---
