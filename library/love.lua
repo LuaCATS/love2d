@@ -73,7 +73,7 @@ function love.setDeprecationOutput(enable) end
 ---
 ---[Open in Browser](https://love2d.org/wiki/love.conf)
 ---
----@param t LoveConfig --{identity:string, appendidentity:boolean, version:string, console:boolean, accelerometerjoystick:boolean, externalstorage:boolean, gammacorrect:boolean, audio:{mic:boolean, mixwithsystem:boolean}, window:{title:string, icon:string, width:number, height:number, borderless:boolean, resizable:boolean, minwidth:number, minheight:number, fullscreen:boolean, fullscreentype:"desktop"|"exclusive", vsync:number, msaa:number, depth:number, stencil:number, display:number, highdpi:boolean, usedpiscale:boolean, x:number, y:number}, modules:{audio:boolean, data:boolean, event:boolean, font:boolean, graphics:boolean, image:boolean, joystick:boolean, keyboard:boolean, math:boolean, mouse:boolean, physics:boolean, sound:boolean, system:boolean, thread:boolean, timer:boolean, touch:boolean, video:boolean, window:boolean}}
+---@param t LoveConfig
 function love.conf(t) end
 
 ---
